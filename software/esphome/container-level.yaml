@@ -1,6 +1,6 @@
 esphome:
-  name: container-level
-  friendly_name: Container Level
+  name: catfood-monitor
+  friendly_name: Catfood Monitor
   on_boot:
     priority: -10
     then:
@@ -11,6 +11,33 @@ esphome:
           then:
             - deep_sleep.enter: ds
 
+esp32:
+  board: esp32-c3-devkitm-1
+  framework:
+    type: esp-idf
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "your-api-encryption-key"
+
+ota:
+  - platform: esphome
+    password: "your-ota-password"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Catfood-Monitor Fallback Hotspot"
+    password: "make-your-own-captive-portal-password"
+
+captive_portal:
 i2c:
   sda: GPIO04
   scl: GPIO05
@@ -43,45 +70,13 @@ sensor:
     accuracy_decimals: 1
     update_interval: 15s
     lambda: |-
-      static float bottom_distance = 0.55;
-
-      if (isnan(id(sensor_distance).state) || isnan(id(sensor_distance).state)) {
-        return NAN;
-      }
-
+      static float bottom_distance = 0.52;
+      static float top_offset = 0.1;
       float dist = id(sensor_distance).state;
-      if (dist > bottom_distance) {
+
+      if (isnan(dist)) {
         return NAN;
       }
 
-      return 100 - (dist / bottom_distance) * 100;
-
-# === Auto-generated code ===
-esp32:
-  board: esp32-c3-devkitm-1
-  framework:
-    type: esp-idf
-
-# Enable logging
-logger:
-
-# Enable Home Assistant API
-api:
-  encryption:
-    key: "replace-with-your-own-key"
-ota:
-  - platform: esphome
-    password: "replace-with-your-own-password"
-
-wifi:
-  ssid: !secret wifi_ssid
-  password: !secret wifi_password
-  power_save_mode: none
-  output_power: 17dB
-
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Container-Level Fallback Hotspot" 
-    password: "replace-with-your-own-password"
-
-captive_portal:
+      float value = 100.0f * (1.0f - (dist - top_offset) / (bottom_distance - top_offset));
+      return min(100.0f, max(0.0f, value));
