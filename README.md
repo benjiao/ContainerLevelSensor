@@ -3,7 +3,7 @@ by Benjie Jiao
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-A DIY sensor for measuring the fill level of a container (e.g. a water tank),
+A DIY sensor for measuring the fill level of a container (e.g. our cat food bin),
 based on an ESP32-C3 and a VL53L0x time-of-flight distance sensor, reporting
 to Home Assistant over ESPHome.
 
