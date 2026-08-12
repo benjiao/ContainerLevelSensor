@@ -15,7 +15,7 @@ to Home Assistant over ESPHome.
 
   ![Schematic](hardware/kicad/ContainerLevelSensor/ContainerLevelSensor%20v1.1%20-%20Schematic.png)
 - `hardware/kicad/Fabrication/` — Generated Gerber/drill files and a ready-to
-  order `.zip`, for sending straight to a PCB fab (e.g. JLCPCB, PCBWay).
+  order `.zip`, for sending straight to a PCB fab (e.g. PCBWay).
 - `hardware/openscad/ContainerLevelSensor.scad` — Parametric enclosure,
   generated with [YAPP_Box](hardware/openscad/YAPP_Box) (included as a git
   submodule — run `git submodule update --init --recursive` before opening
