@@ -2,10 +2,14 @@
 by Benjie Jiao
 
 [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
+[![ko-fi][ko-fi-badge]][ko-fi]
 
 A DIY sensor for measuring the fill level of a container (e.g. our cat food bin),
 based on an ESP32-C3 and a VL53L0x time-of-flight distance sensor, reporting
 to Home Assistant over ESPHome.
+
+For more info, check out the [build writeup][blog-post]. If this project was
+useful to you, consider [buying me a coffee][ko-fi].
 
 ![](images/containerlevelsensor.jpg)
 
@@ -66,3 +70,6 @@ This work is licensed under a
 [cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
 [cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
 [cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+[blog-post]: https://benjiao.net/posts/catfood-level-sensor/
+[ko-fi]: https://ko-fi.com/benjiao
+[ko-fi-badge]: https://img.shields.io/badge/ko--fi-support-ff5e5b?logo=ko-fi&logoColor=white
