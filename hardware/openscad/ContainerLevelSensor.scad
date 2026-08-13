@@ -48,5 +48,5 @@ labelsPlane =
     [ 10, 47, -90, 1, yappBase, "Liberation Mono:style=bold", 3, "then restart unit"]
 ];
 
-showPCB = true;
+showPCB = false;
 YAPPgenerate();

@@ -7,6 +7,12 @@ A DIY sensor for measuring the fill level of a container (e.g. our cat food bin)
 based on an ESP32-C3 and a VL53L0x time-of-flight distance sensor, reporting
 to Home Assistant over ESPHome.
 
+![](images/containerlevelsensor.jpg)
+
+This is meant to be mounted under a container's lid. Like this prototype mounted to monitor our laundry basket.
+
+![](images/laundry.jpg)
+
 ## Repository contents
 
 - `hardware/kicad/ContainerLevelSensor/` — KiCad project (schematic + PCB) for
